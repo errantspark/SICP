@@ -1,0 +1,13 @@
+(define (m3or5 x) 
+  (or 
+    (zero? ( modulo x 5))
+    (zero? ( modulo x 3))) 
+  )
+(define (range min max) 
+  (if (eq? min max)
+    '()
+    (cons min (range (+ 1 min) max))
+    )
+  ) 
+(define (sum-below x) (reduce-left + 0 (filter m3or5 (range 1 x))))
+(sum-below 10) 
